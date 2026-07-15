@@ -7,6 +7,12 @@ npm-debug.log*
 .DS_Store
 *.tsbuildinfo
 
+# Playwright test output
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # Local tool config, not app source
 /.claude/
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useMemo, useState } from "react";
 import RevealSection from "@/components/RevealSection";
+import { useTabListKeyboardNav } from "@/hooks/useTabListKeyboardNav";
 import { enclosureCategories, enclosureProducts } from "@/data/enclosures";
 import { EnclosureCategoryId, EnclosureProduct } from "@/types/product";
 
@@ -14,6 +15,13 @@ export default function EnclosuresPage(): JSX.Element {
   const handleCategoryChange = useCallback((categoryId: EnclosureCategoryId) => {
     setActiveCategoryId(categoryId);
   }, []);
+
+  const categoryIds = enclosureCategories.map((category) => category.id);
+  const { registerRef, handleKeyDown } = useTabListKeyboardNav(
+    categoryIds,
+    activeCategoryId,
+    handleCategoryChange
+  );
 
   const filteredProducts: EnclosureProduct[] = useMemo(() => {
     return enclosureProducts.filter((product) => product.categoryId === activeCategoryId);
@@ -52,12 +60,15 @@ export default function EnclosuresPage(): JSX.Element {
           {enclosureCategories.map((category) => (
             <button
               key={category.id}
+              ref={registerRef(category.id)}
               type="button"
               role="tab"
               id={`tab-${category.id}`}
               aria-selected={activeCategoryId === category.id}
               aria-controls={`panel-${category.id}`}
+              tabIndex={activeCategoryId === category.id ? 0 : -1}
               onClick={() => handleCategoryChange(category.id)}
+              onKeyDown={handleKeyDown}
               className={`rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-200 ${
                 activeCategoryId === category.id
                   ? "bg-tranos-navy text-white"

@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { FormEvent, useCallback, useMemo, useState } from "react";
+import { useTabListKeyboardNav } from "@/hooks/useTabListKeyboardNav";
 import { generatorProducts } from "@/data/energy";
 import { GeneratorProduct } from "@/types/product";
 
 type QuotePanelMode = "datasheet" | "quote";
+
+const PANEL_MODES: readonly QuotePanelMode[] = ["datasheet", "quote"];
 
 interface QuoteFormState {
   fullName: string;
@@ -56,6 +59,9 @@ export default function ProductEnginePage(): JSX.Element {
   const handlePanelModeChange = useCallback((mode: QuotePanelMode) => {
     setPanelMode(mode);
   }, []);
+
+  const { registerRef: registerPanelTabRef, handleKeyDown: handlePanelTabKeyDown } =
+    useTabListKeyboardNav(PANEL_MODES, panelMode, handlePanelModeChange);
 
   const handleFormFieldChange = useCallback(
     (field: keyof QuoteFormState) =>
@@ -129,10 +135,13 @@ export default function ProductEnginePage(): JSX.Element {
 
             <div className="flex gap-3" role="tablist" aria-label="Datasheet or quote panel switcher">
               <button
+                ref={registerPanelTabRef("datasheet")}
                 type="button"
                 role="tab"
                 aria-selected={panelMode === "datasheet"}
+                tabIndex={panelMode === "datasheet" ? 0 : -1}
                 onClick={() => handlePanelModeChange("datasheet")}
+                onKeyDown={handlePanelTabKeyDown}
                 className={`flex-1 rounded-full px-6 py-4 text-sm font-semibold transition-colors duration-200 ${
                   panelMode === "datasheet"
                     ? "bg-tranos-navy text-white"
@@ -142,10 +151,13 @@ export default function ProductEnginePage(): JSX.Element {
                 Download Full Datasheet
               </button>
               <button
+                ref={registerPanelTabRef("quote")}
                 type="button"
                 role="tab"
                 aria-selected={panelMode === "quote"}
+                tabIndex={panelMode === "quote" ? 0 : -1}
                 onClick={() => handlePanelModeChange("quote")}
+                onKeyDown={handlePanelTabKeyDown}
                 className={`flex-1 rounded-full px-6 py-4 text-sm font-semibold transition-colors duration-200 ${
                   panelMode === "quote"
                     ? "bg-tranos-blue text-white"

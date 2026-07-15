@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import RevealSection from "@/components/RevealSection";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { useTabListKeyboardNav } from "@/hooks/useTabListKeyboardNav";
 import { businessDivisions, complianceCertificates } from "@/data/divisions";
 import { caseStudySectors } from "@/data/case-studies";
 import { integrationPartners } from "@/data/energy";
@@ -32,6 +33,12 @@ export default function HomePage(): JSX.Element {
   const [activeDivisionId, setActiveDivisionId] = useState<string>(businessDivisions[0].id);
   const activeDivision =
     businessDivisions.find((division) => division.id === activeDivisionId) ?? businessDivisions[0];
+  const divisionIds = businessDivisions.map((division) => division.id);
+  const { registerRef, handleKeyDown } = useTabListKeyboardNav(
+    divisionIds,
+    activeDivisionId,
+    setActiveDivisionId
+  );
 
   return (
     <>
@@ -76,11 +83,14 @@ export default function HomePage(): JSX.Element {
             {businessDivisions.map((division: BusinessDivision) => (
               <button
                 key={division.id}
+                ref={registerRef(division.id)}
                 type="button"
                 role="tab"
                 id={division.id}
                 aria-selected={activeDivisionId === division.id}
+                tabIndex={activeDivisionId === division.id ? 0 : -1}
                 onClick={() => setActiveDivisionId(division.id)}
+                onKeyDown={handleKeyDown}
                 className={`rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-200 ${
                   activeDivisionId === division.id
                     ? "bg-tranos-navy text-white"
