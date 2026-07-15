@@ -1,9 +1,33 @@
 import {
   CableClampProduct,
   CableGlandFamily,
+  CableGlandValueProp,
   CableTraySpec,
   EquipmentRackProduct,
 } from "@/types/product";
+
+export const cableGlandsIntro: string[] = [
+  "At Tranos, we manufacture and supply high-integrity cable glands engineered to provide superior strain relief, exceptional environmental sealing, and robust mechanical protection for electrical installations. As a core part of our Cable Management & Support System (alongside Tranos Trac, Tranos Eris, and Tranos Ellis), our cable glands ensure secure entry points for your enclosures, instruments, and industrial panels.",
+  "We design and deliver high-performance cable entry solutions engineered to meet international safety and ingress standards in the most demanding environments.",
+];
+
+export const cableGlandsValueProps: CableGlandValueProp[] = [
+  {
+    title: "Engineering Excellence",
+    description:
+      "As Nigeria's leading engineering and manufacturing company, our products are built to withstand rigorous industrial demands.",
+  },
+  {
+    title: "Complete System Integration",
+    description:
+      "Designed to seamlessly integrate with our broader cable tray, ladder, and support systems (Tranos Trac, Eris, and Ellis).",
+  },
+  {
+    title: "Certified Protection",
+    description:
+      "Our glands meet rigid international standards for ingress protection (up to IP68) and hazardous area safety (ATEX).",
+  },
+];
 
 export const cableTraySurfaceTreatments: { name: string; useCase: string }[] = [
   {
@@ -55,79 +79,82 @@ export const equipmentRacks: EquipmentRackProduct[] = [
 
 export const cableClampProducts: CableClampProduct[] = [
   {
-    id: "ellis-cable-clamp",
-    name: "Ellis Cable Guide Clamp",
+    id: "tranos-ellis-cable-clamp",
+    name: "Tranos Ellis Cable Guide Clamp",
     description:
       "Designed, developed, tested, and manufactured following IEC 61914 (cable cleats for electrical installations). The Cable Guide Clamp is a unique combination of cable guide and cable clamp, installed along the cable route in place of rollers. Its fully gimballed mounting and slippery nylon construction minimize friction.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Ellis cable guide clamp",
+    imageAlt: "Tranos Ellis cable guide clamp",
   },
   {
-    id: "ellis-cable-cleat",
-    name: "Ellis Cable Cleat",
+    id: "tranos-ellis-cable-cleat",
+    name: "Tranos Ellis Cable Cleat",
     description:
       "Secures cable to the tray or ladder and prevents damage that might occur in situations of short-circuiting in electrical systems.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Ellis cable cleat",
+    imageAlt: "Tranos Ellis cable cleat",
   },
 ];
 
 export const cableGlandFamilies: CableGlandFamily[] = [
   {
     id: "nickel-brass-ip54",
-    name: "Nickel Plated Brass Cable Glands IP54",
-    description: "Nickel-plated brass cable glands rated to IP54 for general indoor and light industrial installations.",
+    name: "Nickel-Plated Brass Cable Glands (IP54)",
+    description:
+      "Designed for standard industrial applications, these glands offer excellent mechanical strength, durability, and corrosion resistance.",
+    specLabel: "Ingress Protection",
+    specValue: "IP54",
+    bestFor:
+      "Indoor machinery, industrial control panels, and areas requiring reliable strain relief without extreme moisture exposure.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Nickel plated brass cable gland IP54",
-    codeTable: [
-      { product: "Nickel plated brass gland PG07 3-6.5", code: "6018-N07" },
-      { product: "Nickel plated brass gland PG09 3.6-8", code: "6018-N09" },
-      { product: "Nickel plated brass gland PG11 4.5-10", code: "6018-N11" },
-    ],
+    imageAlt: "Tranos brand mark — Nickel-Plated Brass Cable Gland IP54 photography pending",
   },
   {
     id: "nickel-brass-ip68",
-    name: "Nickel Plated Brass Cable Glands IP68",
-    description: "Nickel-plated brass cable glands rated to IP68 for submersible and high ingress-protection applications.",
+    name: "Nickel-Plated Brass Cable Glands (IP68)",
+    description:
+      "Built for environments requiring complete protection against dust and continuous immersion in water.",
+    specLabel: "Ingress Protection",
+    specValue: "IP68 (Waterproof and Dust-tight)",
+    bestFor:
+      "Outdoor installations, heavy industrial machinery, and washdown areas requiring a highly resilient seal.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Nickel plated brass cable gland IP68",
-    codeTable: [
-      { product: "Nickel plated brass gland M16 7-14", code: "6068-N16" },
-      { product: "Nickel plated brass gland M20 6-13", code: "6068-N20" },
-      { product: "Nickel plated brass gland M25 9-17", code: "6068-N25" },
-    ],
+    imageAlt: "Tranos brand mark — Nickel-Plated Brass Cable Gland IP68 photography pending",
   },
   {
     id: "stainless-aisi-303",
-    name: "Stainless Steel Cable Glands AISI 303",
-    description: "Corrosion-resistant AISI 303 stainless steel cable glands for general industrial environments.",
+    name: "Stainless Steel Cable Glands (AISI 303)",
+    description:
+      "An excellent mid-grade stainless steel option offering high mechanical toughness, wear resistance, and good corrosion protection.",
+    specLabel: "Material",
+    specValue: "AISI 303 Stainless Steel",
+    bestFor:
+      "Food processing equipment, pharmaceutical environments, and light chemical processing plants.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Stainless steel cable gland AISI 303",
-    codeTable: [
-      { product: "Stainless steel gland M20 AISI 303", code: "6303-S20" },
-      { product: "Stainless steel gland M25 AISI 303", code: "6303-S25" },
-      { product: "Stainless steel gland M32 AISI 303", code: "6303-S32" },
-    ],
+    imageAlt: "Tranos brand mark — Stainless Steel Cable Gland AISI 303 photography pending",
   },
   {
     id: "stainless-aisi-316l",
-    name: "Stainless Steel Cable Glands AISI 316L",
-    description: "Marine-grade AISI 316L stainless steel cable glands for coastal, offshore, and high-corrosion environments.",
+    name: "Stainless Steel Cable Glands (AISI 316L)",
+    description:
+      "Our premium grade stainless steel glands, offering maximum resistance to chloride pitting, harsh acids, and severe industrial atmospheres.",
+    specLabel: "Material",
+    specValue: "AISI 316L (Low-Carbon Marine Grade)",
+    bestFor:
+      "Marine engineering, offshore oil & gas platforms, and highly corrosive chemical processing plants.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Stainless steel cable gland AISI 316L",
-    codeTable: [
-      { product: "Stainless steel gland M20 AISI 316L", code: "6316-S20" },
-      { product: "Stainless steel gland M25 AISI 316L", code: "6316-S25" },
-      { product: "Stainless steel gland M32 AISI 316L", code: "6316-S32" },
-    ],
+    imageAlt: "Tranos brand mark — Stainless Steel Cable Gland AISI 316L photography pending",
   },
   {
     id: "polyamide-locknut",
-    name: "Polyamide Cable Glands (Also Available with Complete Locknut)",
+    name: "Polyamide Cable Glands (with Complete Locknut)",
     description:
-      "IP68 polyamide glands consist of a body fitted with elastic fins that, when a nut is tightened, tighten concentrically and uniformly around an NBR washer seal, guaranteeing IP68 water tightness and efficient cable retention. The trapezoidal thread prevents accidental unscrewing through vibration. Seals resist ageing, corrosion, and oils. PG thread in accordance with DIN 40430.",
+      "Lightweight, highly flexible, and completely non-corrosive. Engineered for quick installation and reliable sealing. Comes complete with a matching locknut for immediate, secure mounting.",
+    specLabel: "Material",
+    specValue: "Premium Polyamide (Nylon)",
+    bestFor: "Telecommunications, commercial distribution boards, and non-metallic enclosures.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Polyamide cable gland with locknut",
+    imageAlt: "Tranos brand mark — Polyamide Cable Gland photography pending",
     codeTable: [
       { product: "Polyamide gland PG07 3+6.5", code: "6018-P07" },
       { product: "Polyamide gland PG09 3.6+8", code: "6018-P09" },
@@ -141,14 +168,13 @@ export const cableGlandFamilies: CableGlandFamily[] = [
   },
   {
     id: "atex-explosion-proof",
-    name: "ATEX (Explosion Proof) Cable Glands",
-    description: "Certified explosion-proof cable glands for Zone 1 / Zone 2 hazardous-area installations.",
+    name: "ATEX (Explosion-Proof) Cable Glands",
+    description:
+      "Engineered specifically for hazardous locations where combustible gases, vapors, or dust are present. These glands safely contain internal ignition hazards.",
+    specLabel: "Certification",
+    specValue: "ATEX / Explosion-Proof",
+    bestFor: "Refineries, petrochemical facilities, gas metering stations, and hazardous zones.",
     imageSrc: "/images/tranos-logo.png",
-    imageAlt: "ATEX explosion proof cable gland",
-    codeTable: [
-      { product: "ATEX gland M20 Ex d/e", code: "6ATEX-20" },
-      { product: "ATEX gland M25 Ex d/e", code: "6ATEX-25" },
-      { product: "ATEX gland M32 Ex d/e", code: "6ATEX-32" },
-    ],
+    imageAlt: "Tranos brand mark — ATEX Explosion-Proof Cable Gland photography pending",
   },
 ];

@@ -1,12 +1,14 @@
 import { EnergySectorDeployment, GeneratorProduct, PartnerLogo } from "@/types/product";
 
+// Note: "Ellis" was previously listed here but is actually "Tranos Ellis" —
+// an in-house Tranos cable clamp/cleat line, not a third-party partner. See
+// src/data/cable-management.ts for its real product listing.
 export const integrationPartners: PartnerLogo[] = [
   { id: "siemens", name: "Siemens", imageSrc: "/images/tranos-logo.png" },
   { id: "soga", name: "Soga", imageSrc: "/images/tranos-logo.png" },
   { id: "toyota", name: "Toyota", imageSrc: "/images/tranos-logo.png" },
   { id: "yanmar", name: "Yanmar", imageSrc: "/images/tranos-logo.png" },
   { id: "dkc", name: "DKC", imageSrc: "/images/tranos-logo.png" },
-  { id: "ellis", name: "Ellis", imageSrc: "/images/tranos-logo.png" },
 ];
 
 export const energySectorDeployments: EnergySectorDeployment[] = [

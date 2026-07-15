@@ -7,6 +7,8 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 import {
   cableClampProducts,
   cableGlandFamilies,
+  cableGlandsIntro,
+  cableGlandsValueProps,
   cableTraySpec,
   cableTraySurfaceTreatments,
   equipmentRacks,
@@ -35,7 +37,8 @@ export default function CableManagementPage(): JSX.Element {
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80">
             Tranos TRAC Cable Trays &amp; Ladders, Tranos ERIS Equipment Racks &amp;
-            Instrumentation Supports, Ellis Cable Clamps/Cleats, and a full range of cable glands.
+            Instrumentation Supports, Tranos Ellis Cable Clamps/Cleats, and a full range of cable
+            glands.
           </p>
         </div>
       </section>
@@ -220,13 +223,20 @@ export default function CableManagementPage(): JSX.Element {
         className="bg-tranos-slate/20 px-gutter py-20"
       >
         <div className="mx-auto max-w-[1400px]">
-          <h2 className="mb-4 text-2xl font-bold text-tranos-navy lg:text-display-h3">Cable Glands</h2>
-          <p className="mb-10 max-w-2xl text-sm leading-relaxed text-tranos-graphite">
-            Product codes below are illustrative pending confirmation against the official Tranos
-            gland catalog — verify before publishing to production.
-          </p>
+          <h2 className="mb-4 text-2xl font-bold text-tranos-navy lg:text-display-h3">
+            Cable Glands
+          </h2>
+          <div className="mb-10 flex max-w-3xl flex-col gap-4">
+            {cableGlandsIntro.map((paragraph) => (
+              <p key={paragraph} className="text-sm leading-relaxed text-tranos-graphite">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <h3 className="mb-8 text-lg font-bold text-tranos-navy">Our Cable Gland Range</h3>
           <div className="flex flex-col gap-14">
-            {cableGlandFamilies.map((family) => (
+            {cableGlandFamilies.map((family, index) => (
               <div key={family.id} className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                 <div className="flex flex-col gap-4">
                   <div className="relative aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl border border-tranos-slate bg-white data-protected">
@@ -239,27 +249,64 @@ export default function CableManagementPage(): JSX.Element {
                       className="select-none object-contain p-8"
                     />
                   </div>
-                  <h3 className="text-base font-semibold text-tranos-navy">{family.name}</h3>
+                  <h4 className="text-base font-semibold text-tranos-navy">
+                    {index + 1}. {family.name}
+                  </h4>
                   <p className="text-sm leading-relaxed text-tranos-graphite">{family.description}</p>
+                  <dl className="flex flex-col gap-1 text-sm">
+                    <div className="flex gap-2">
+                      <dt className="font-semibold text-tranos-navy">{family.specLabel}:</dt>
+                      <dd className="text-tranos-graphite">{family.specValue}</dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className="font-semibold text-tranos-navy">Best For:</dt>
+                      <dd className="text-tranos-graphite">{family.bestFor}</dd>
+                    </div>
+                  </dl>
                 </div>
                 <div className="overflow-x-auto rounded-2xl border border-tranos-slate bg-white">
-                  <table className="w-full min-w-[320px] border-collapse text-left text-sm">
-                    <thead>
-                      <tr className="bg-tranos-navy">
-                        <th scope="col" className="px-5 py-3 font-semibold text-white">Product</th>
-                        <th scope="col" className="px-5 py-3 font-semibold text-white">Code</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {family.codeTable.map((row) => (
-                        <tr key={row.code} className="border-b border-tranos-slate">
-                          <td className="px-5 py-3 text-tranos-graphite">{row.product}</td>
-                          <td className="px-5 py-3 text-tranos-graphite">{row.code}</td>
+                  {family.codeTable ? (
+                    <table className="w-full min-w-[320px] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="bg-tranos-navy">
+                          <th scope="col" className="px-5 py-3 font-semibold text-white">Product</th>
+                          <th scope="col" className="px-5 py-3 font-semibold text-white">Code</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {family.codeTable.map((row) => (
+                          <tr key={row.code} className="border-b border-tranos-slate">
+                            <td className="px-5 py-3 text-tranos-graphite">{row.product}</td>
+                            <td className="px-5 py-3 text-tranos-graphite">{row.code}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <div className="flex h-full flex-col items-start justify-center gap-4 p-6">
+                      <p className="text-sm leading-relaxed text-tranos-graphite">
+                        Part codes for this range are confirmed against the current Tranos catalog
+                        at time of order.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => openQuoteModal("Cable Management & Support System")}
+                        className="rounded-full border border-tranos-navy px-5 py-2.5 text-sm font-semibold text-tranos-navy transition-colors duration-200 hover:bg-tranos-navy hover:text-white"
+                      >
+                        Contact Us for Exact Part Codes
+                      </button>
+                    </div>
+                  )}
                 </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {cableGlandsValueProps.map((valueProp) => (
+              <div key={valueProp.title} className="rounded-2xl border border-tranos-slate bg-white p-6">
+                <h4 className="mb-2 text-base font-semibold text-tranos-navy">{valueProp.title}</h4>
+                <p className="text-sm leading-relaxed text-tranos-graphite">{valueProp.description}</p>
               </div>
             ))}
           </div>

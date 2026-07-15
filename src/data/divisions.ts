@@ -70,7 +70,7 @@ export const businessDivisions: BusinessDivision[] = [
     id: "cable-management",
     name: "Cable Management & Support System",
     shortDescription:
-      "Tranos TRAC cable trays and ladders, Tranos ERIS equipment racks and instrumentation supports, Ellis cable clamps/cleats, and cable glands.",
+      "Tranos TRAC cable trays and ladders, Tranos ERIS equipment racks and instrumentation supports, Tranos Ellis cable clamps/cleats, and cable glands.",
     href: "/cable-management",
     gridSpan: "standard",
     imageSrc: "/images/products/cable-management/tranos-cable-ladder.webp",

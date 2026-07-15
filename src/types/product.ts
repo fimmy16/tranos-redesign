@@ -157,9 +157,19 @@ export interface CableGlandFamily {
   id: string;
   name: string;
   description: string;
+  specLabel: string;
+  specValue: string;
+  bestFor: string;
   imageSrc: string;
   imageAlt: string;
-  codeTable: CableGlandCodeRow[];
+  // Real, catalog-verified codes only — omit rather than fabricate. Currently
+  // only the polyamide family has confirmed real codes (see cable-management.ts).
+  codeTable?: CableGlandCodeRow[];
+}
+
+export interface CableGlandValueProp {
+  title: string;
+  description: string;
 }
 
 export interface CableClampProduct {
