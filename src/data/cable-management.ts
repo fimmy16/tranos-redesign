@@ -106,8 +106,8 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specValue: "IP54",
     bestFor:
       "Indoor machinery, industrial control panels, and areas requiring reliable strain relief without extreme moisture exposure.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — Nickel-Plated Brass Cable Gland IP54 photography pending",
+    imageSrc: "/images/products/cable-glands/nickel-plated-brass-cable-gland.jpg",
+    imageAlt: "Nickel-plated brass cable gland",
   },
   {
     id: "nickel-brass-ip68",
@@ -118,8 +118,8 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specValue: "IP68 (Waterproof and Dust-tight)",
     bestFor:
       "Outdoor installations, heavy industrial machinery, and washdown areas requiring a highly resilient seal.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — Nickel-Plated Brass Cable Gland IP68 photography pending",
+    imageSrc: "/images/products/cable-glands/nickel-plated-brass-cable-gland.jpg",
+    imageAlt: "Nickel-plated brass cable gland",
   },
   {
     id: "stainless-aisi-303",
@@ -130,8 +130,8 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specValue: "AISI 303 Stainless Steel",
     bestFor:
       "Food processing equipment, pharmaceutical environments, and light chemical processing plants.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — Stainless Steel Cable Gland AISI 303 photography pending",
+    imageSrc: "/images/products/cable-glands/stainless-steel-cable-gland.jpg",
+    imageAlt: "Stainless steel cable gland",
   },
   {
     id: "stainless-aisi-316l",
@@ -142,8 +142,8 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specValue: "AISI 316L (Low-Carbon Marine Grade)",
     bestFor:
       "Marine engineering, offshore oil & gas platforms, and highly corrosive chemical processing plants.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — Stainless Steel Cable Gland AISI 316L photography pending",
+    imageSrc: "/images/products/cable-glands/stainless-steel-cable-gland.jpg",
+    imageAlt: "Stainless steel cable gland",
   },
   {
     id: "polyamide-locknut",
@@ -153,8 +153,8 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specLabel: "Material",
     specValue: "Premium Polyamide (Nylon)",
     bestFor: "Telecommunications, commercial distribution boards, and non-metallic enclosures.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — Polyamide Cable Gland photography pending",
+    imageSrc: "/images/products/cable-glands/polyamide-cable-gland.jpg",
+    imageAlt: "Polyamide cable gland with complete locknut",
     codeTable: [
       { product: "Polyamide gland PG07 3+6.5", code: "6018-P07" },
       { product: "Polyamide gland PG09 3.6+8", code: "6018-P09" },
@@ -174,7 +174,7 @@ export const cableGlandFamilies: CableGlandFamily[] = [
     specLabel: "Certification",
     specValue: "ATEX / Explosion-Proof",
     bestFor: "Refineries, petrochemical facilities, gas metering stations, and hazardous zones.",
-    imageSrc: "/images/tranos-logo.png",
-    imageAlt: "Tranos brand mark — ATEX Explosion-Proof Cable Gland photography pending",
+    imageSrc: "/images/products/cable-glands/atex-cable-gland.jpg",
+    imageAlt: "ATEX explosion-proof cable gland with armor clamping ring",
   },
 ];
