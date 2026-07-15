@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Kuro";
+  src: local("Kuro Regular"), local("Kuro");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kuro Bold";
+  src: local("Kuro Bold"), local("Kuro Semi Bold"), local("Kuro");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --tranos-navy: #001c49;
+  --tranos-blue: #003087;
+  --tranos-steel: #7a9ac0;
+  --tranos-slate: #d0daea;
+  --tranos-graphite: #727376;
+  --tranos-gold: #f4a520;
+  --page-bg: #f7f8fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--tranos-navy);
+  font-family: "Kuro", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Kuro Bold", "Arial Bold", Arial, sans-serif;
+}
+
+/* Rule 3.2: Selection & Drag Blockers over protected data surfaces */
+.data-protected,
+.data-protected * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Accent-only angular motif (badges/tags/hero corners) — NOT the default button shape. See CLAUDE_RULES.md 1.3 */
+.clip-accent-angle {
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+.bg-tranos-gradient-hero {
+  background: linear-gradient(135deg, #001c49 0%, #003087 100%);
+}
+
+/* Scroll reveal base state, animated via useScrollReveal IntersectionObserver hook */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Progressive-enhancement fallback: if JS never runs, content must still be visible */
+.no-js .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+/* Continuous marquee loop for integration partner logotypes */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 32s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tranos-slate);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tranos-blue);
+  border-radius: 999px;
+}

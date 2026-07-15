@@ -1,0 +1,20 @@
+/node_modules
+/.next/
+/out/
+.env
+.env*.local
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
+
+# Local tool config, not app source
+/.claude/
+
+# Raw source/reference material (client content drops, mockups, brand assets).
+# The curated, actually-used copies already live under /public — those ARE tracked.
+# These raw folders are large (Website Images/ alone is 600MB+) and mostly unused
+# originals, not part of the deployable app.
+/Website Images/
+/Website Content/
+/Tranos Website Mock Ups.pdf
+/brand_assets/
