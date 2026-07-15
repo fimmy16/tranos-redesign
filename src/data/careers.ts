@@ -5,7 +5,7 @@ const SEAMLESS_HIRING_URL = "https://tranos.seamlesshiring.com/h/advanced#/jobs"
 export const careersHeroCopy = {
   headline: "Meet Our People",
   subheadline:
-    "Experience Tranos through the stories of our people — celebrating growth, creativity and the difference we all make together.",
+    "Experience Tranos through the stories of our people celebrating growth, creativity and the difference we all make together.",
 };
 
 export const wantToWorkCopy = {

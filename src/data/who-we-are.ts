@@ -6,14 +6,9 @@ export const whoWeAreCopy: string[] = [
   "At the heart of our operations, we prioritize safety and quality, by maintaining strict compliance with global best practices, enabling us to earn ISO 9001:2015 and ISO 45001:2018 certifications for quality management and workplace safety.",
 ];
 
-// Final Mission/Vision copy is pending from the client — the source document
-// ("Updated_Website_Content_(About Us Page_Who We Are).docx") contains three
-// differently worded, ambiguously labeled candidates and flags itself as
-// unresolved. Do not treat this placeholder as final.
-export const missionStatement =
-  "[Mission statement pending final client copy — see Updated_Website_Content_(About Us Page_Who We Are).docx for candidate drafts]";
+export const missionStatement = "To be a global leader in engineering and manufacturing solutions.";
 export const visionStatement =
-  "[Vision statement pending final client copy — see Updated_Website_Content_(About Us Page_Who We Are).docx for candidate drafts]";
+  "Our mission is to deliver innovative solutions that empower businesses, individuals, and communities by prioritizing safety, social responsibility, and a value-driven approach.";
 
 export const valuesIntro: string =
   "In a world where technology constantly evolves, meeting and surpassing customer expectations remains paramount. Our ethos at Tranos is to consistently add value to lives, businesses and the community through sustainable and innovative solutions. The fabrics of our values are tightly woven into our culture, empowering us to lead and stay ahead of the competition.";
